@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="three.js-master/build/three.js"></script>
+    <script src="three.js-master/examples/js/controls/OrbitControls.js"></script>
+    <script type='text/javascript' src='scripts/tween.js'></script>
+    <script type='text/javascript' src='scripts/createCube.js'></script>
+    <script type='text/javascript' src='scripts/frame.js'></script>
+    <script type="text/javascript" src="scripts/eventListener.js"></script>
+    <script type="text/javascript" src="scripts/rotateSolution.js"></script>
+    <script type="text/javascript" src="scripts/autoReduction.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        div#div_cube {
+            cursor: pointer;
+            width: 100%;
+            height: 100px;
+            border: 0px solid #00aaff;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="startReduction()">还原</button>
+    <div id="div_cube"></div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
