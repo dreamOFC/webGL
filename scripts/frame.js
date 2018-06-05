@@ -58,6 +58,8 @@ function initObject() {
             indexFlag: cubes[i].indexFlag
         })
         scene.add(cubes[i]);
+        //border = new THREE.BoxHelper( cubes[i],'#000000' );//设置边框，这个边框不会旋转
+        //scene.add( border );
     }
     //创建辅助魔方方便寻找操作平面
     var cubeAid = new THREE.BoxGeometry(300,300,300);

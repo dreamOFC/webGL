@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fillRoundRect(cxt,x,y,width,height,radius,fillColor) {
+            if(2 * radius > width || 2 * radius > height){return false;}
+            cxt.save();
+            cxt.translate(x,y);
+            cxt.fillStyle = "#000";
+            cxt.fillRect(0, 0, width, height);
+            //绘制圆角矩形的各个边
+            drawRoundRectPath(cxt, width-20, height-20, radius);
+            cxt.fillStyle = fillColor;
+            cxt.fill();
+            cxt.restore();
+        }
+        function drawRoundRectPath(cxt,width,height,radius){
+            cxt.translate(10, 10);
+            cxt.beginPath();
+            cxt.arc(width-radius,height-radius,radius,0,Math.PI/2);
+            cxt.lineTo(radius,height);
+            cxt.arc(radius,height-radius,radius,Math.PI/2,Math.PI);
+            cxt.lineTo(0,radius);
+            cxt.arc(radius,radius,radius,Math.PI,Math.PI*3/2);
+            cxt.lineTo(width-radius,0);
+            cxt.arc(width-radius,radius,radius,Math.PI*3/2,Math.PI*2);
+            cxt.lineTo(width,height-radius);
+            cxt.closePath();
+        }
+    </script>
+</head>
+<body>
+<canvas id="hi"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('hi');
+    canvas.width = 256;
+    canvas.height = 256;
+    var context = canvas.getContext('2d');
+    if (context) {
+        //绘制带边框的圆角矩形
+        fillRoundRect(context,0,0,256,256,50,'#00eeee   ');
+    } else {
+        alert('您的浏览器不支持Canvas.');
+    }
+
+</script>
+</body>
+</html>

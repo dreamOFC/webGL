@@ -9,6 +9,9 @@ var subVector;
 var isOnMove = false;           //作为屏幕鼠标移动判断的一个标识
 
 function onMouseD(event) {
+    if(!rotationEnding){
+        return;
+    }
     event.preventDefault();
     pressDown = true;
     isOnMove = false;

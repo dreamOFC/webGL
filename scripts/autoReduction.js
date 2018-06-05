@@ -1,4 +1,7 @@
 function startReduction() {
+    if (!rotationEnding) {
+        return;
+    }
     bottomCenter();
 }
 
@@ -4266,23 +4269,20 @@ function pll() {
     if (judgePll(1) && !judgePll(2) && judgePll(3) && judgePll(4) && judgePll(5) && judgePll(6)
         && judgePll(7) && !judgePll(8) && judgePll(9) && judgePll(10) && !judgePll(11) && judgePll(12)) {
         judge = 0;
-        if (getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[14], xAxisP) &&
-            getFaceColorByVector(cubes[11], yAxisP) == getFaceColorByVector(cubes[12], xAxisN) &&
-            getFaceColorByVector(cubes[9], xAxisN) == getFaceColorByVector(cubes[4], zAxisP)) {
+        if (getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[14], xAxisP)) {
             pllCase1();
         } else {
             pllCase2();
         }
-    }
-    else if (judgePll(1) && !judgePll(2) && judgePll(3) && judgePll(4) && !judgePll(5) && judgePll(6)
-        && judgePll(7) && !judgePll(8) && judgePll(9) && judgePll(10) && !judgePll(11) && judgePll(12)) {
-        judge = 0;
-        if (getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[22], zAxisN) &&
-            getFaceColorByVector(cubes[19], zAxisN) == getFaceColorByVector(cubes[4], zAxisP)) {
+    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && judgePll(4) && !judgePll(5) && judgePll(6)
+        && judgePll(7) && !judgePll(8) && judgePll(9) && judgePll(10) && !judgePll(11) && judgePll(12) &&
+        getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[22], zAxisN) &&
+        getFaceColorByVector(cubes[19], zAxisN) == getFaceColorByVector(cubes[4], zAxisP)) {
             pllCase3();
-        }else {
+    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && judgePll(4) && !judgePll(5) && judgePll(6)
+        && judgePll(7) && !judgePll(8) && judgePll(9) && judgePll(10) && !judgePll(11) && judgePll(12) &&
+        getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[12], xAxisN)) {
             pllCase4();
-        }
     }  else if (!judgePll(1) && judgePll(2) && judgePll(3) && judgePll(4) && judgePll(5) && !judgePll(6)
         && !judgePll(7) && judgePll(8) && !judgePll(9) && !judgePll(10) && judgePll(11) && !judgePll(12)) {
         judge = 0;
@@ -4292,7 +4292,8 @@ function pll() {
             pllCase5();
         }
     } else if (!judgePll(1) && judgePll(2) && !judgePll(3) && !judgePll(4) && judgePll(5) && !judgePll(6)
-        && !judgePll(7) && judgePll(8) && !judgePll(9) && !judgePll(10) && judgePll(11) && !judgePll(12)) {
+        && !judgePll(7) && judgePll(8) && !judgePll(9) && !judgePll(10) && judgePll(11) && !judgePll(12)
+        && getFaceColorByVector(cubes[18], xAxisN) == getFaceColorByVector(cubes[1], zAxisP)) {
         judge = 0;
         pllCase7();
     } else if (judgePll(1) && !judgePll(2) && judgePll(3) && judgePll(4) && judgePll(5) && !judgePll(6)
@@ -4327,20 +4328,20 @@ function pll() {
         && !judgePll(7) && judgePll(8) && !judgePll(9) && !judgePll(10) && judgePll(11) && judgePll(12)) {
         judge = 0;
         pllCase15();
-    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && !judgePll(4) && judgePll(5) && judgePll(6)
-        && !judgePll(7) && !judgePll(8) && !judgePll(9) && !judgePll(10) && !judgePll(11) && !judgePll(12)) {
+    } else if (getFaceColorByVector(cubes[19], zAxisN) == getFaceColorByVector(cubes[20], zAxisN) &&
+        getFaceColorByVector(cubes[0], xAxisN) == getFaceColorByVector(cubes[18], xAxisN)) {
         judge = 0;
         pllCase16();
-    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && !judgePll(4) && !judgePll(5) && !judgePll(6)
-        && !judgePll(7) && judgePll(8) && judgePll(9) && !judgePll(10) && !judgePll(11) && !judgePll(12)) {
+    } else if (getFaceColorByVector(cubes[2], xAxisP) == getFaceColorByVector(cubes[11], xAxisP) &&
+        getFaceColorByVector(cubes[0], xAxisN) == getFaceColorByVector(cubes[18], xAxisN)) {
         judge = 0;
         pllCase17();
-    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && !judgePll(4) && !judgePll(5) && !judgePll(6)
-        && !judgePll(7) && !judgePll(8) && !judgePll(9) && judgePll(10) && judgePll(11) && !judgePll(12)) {
+    } else if (getFaceColorByVector(cubes[1], zAxisP) == getFaceColorByVector(cubes[2], zAxisP) &&
+        getFaceColorByVector(cubes[0], xAxisN) == getFaceColorByVector(cubes[18], xAxisN)) {
         judge = 0;
         pllCase18();
-    } else if (judgePll(1) && !judgePll(2) && judgePll(3) && !judgePll(4) && !judgePll(5) && !judgePll(6)
-        && judgePll(7) && judgePll(8) && !judgePll(9) && !judgePll(10) && !judgePll(11) && !judgePll(12)) {
+    } else if (getFaceColorByVector(cubes[11], xAxisP) == getFaceColorByVector(cubes[20], xAxisP) &&
+        getFaceColorByVector(cubes[0], xAxisN) == getFaceColorByVector(cubes[18], xAxisN) ){
         judge = 0;
         pllCase19();
     } else if (judgePll(1) && !judgePll(2) && !judgePll(3) && !judgePll(4) && judgePll(5) && judgePll(6)
